@@ -1,0 +1,106 @@
+package Project;
+ import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Services {
+	public static void main(String[] args) throws InterruptedException {
+		// setup webdrivers
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\admin\\Downloads\\" + "chromedriver-win64-extract\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		// explicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		// maximize window
+		driver.manage().window().maximize();
+		// opens amazon.in
+		driver.get("https://therapdevapp.promactinfo.xyz/login");
+		// signin process
+	// email
+	driver.findElement(By.xpath("//input[@formcontrolname='email']")).sendKeys("darshanrana.edu41@gmail.com");
+		//password
+	driver.findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys("Darshan@123");
+      //submit
+	driver.findElement(By.xpath("//button[@type='submit']")).click();
+	 Thread.sleep(5000);
+//		// country code
+	driver.findElement(By.xpath("(//span[@type='button'])[1]")).click();
+	
+
+	//service1
+
+		//driver.findElement(By.xpath("")).click();
+		 WebElement dropdownElement = driver.findElement(By.name("serviceName"));
+
+	        // Create a Select object to interact with the dropdown
+	        Select dropdown = new Select(dropdownElement);
+
+	        // Select the option by visible text
+	        dropdown.selectByVisibleText("service1 - Clinic");
+	        
+	     // Locate the dropdown element by its name attribute
+	        WebElement dropdownElement1 = driver.findElement(By.name("patientName"));
+
+	     
+	        Select dropdown1 = new Select(dropdownElement1);
+
+	        
+	        dropdown1.selectByVisibleText("MarkfFHGer Ottoaehs");
+	        
+	        WebElement dropdownElement2 = driver.findElement(By.name("meetingType"));
+
+	      
+	        Select dropdown2 = new Select(dropdownElement2);
+
+	      
+	        dropdown2.selectByVisibleText("Clinic");
+	        
+	        
+          //date
+		driver.findElement(By.xpath("(//input[@placeholder='Select Date'])[1]")).click();
+		driver.findElement(By.xpath("(//td[@class='ng-tns-c117-1 ng-star-inserted'])[10]")).click();
+		
+		
+//		driver.findElement(By.xpath("//input[@formcontrolname='time']")).sendKeys("4:5 A");
+//		  WebElement inputElement = driver.findElement(By.name("time"));
+//
+//	          // Locate the input element by its name attribute
+        WebElement inputElement = driver.findElement(By.name("time"));
+
+        // Click the input element to activate it
+        inputElement.click();
+
+        // Clear any existing value in the input field
+       // inputElement.clear();
+
+        // Enter the desired time value ("4:50 PM")
+        inputElement.sendKeys("4");
+
+        // Optionally, you can retrieve the entered value to verify
+//        String enteredValue = inputElement.getAttribute("value");
+//        System.out.println("Entered value: " + enteredValue);
+//		
+		driver.findElement(By.xpath("//textarea[@formcontrolname='message']")).sendKeys("first appointment");
+//		driver.findElement(By.xpath("//input[@formcontrolname='zipcode']")).sendKeys("1234");
+//		// currency
+//		WebElement dropdownElement2 = driver.findElement(By.cssSelector("select[formcontrolname='currency']"));
+//		Select dropdown1 = new Select(dropdownElement2);
+//		dropdown1.selectByValue("USD");
+//		//language
+//		driver.findElement(By.xpath("//select[@formcontrolname='language']")).click();
+//		driver.findElement(By.xpath("//option[@value='he']")).click();
+//		//scroll page
+//		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+//		js1.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+//        //submit button
+//		Thread.sleep(5000);
+//		driver.findElement(By.xpath("//input[@type='submit']")).click();
+//		
+//		driver.quit();
+	}
+}
+//span[@class="text-danger error-font ng-star-inserted"]

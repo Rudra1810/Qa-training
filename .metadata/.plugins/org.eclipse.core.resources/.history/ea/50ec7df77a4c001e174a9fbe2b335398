@@ -1,0 +1,73 @@
+package Project;
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+public class Day3SignupLogin {
+	public static void main(String[] args) throws InterruptedException{
+		//setup webdrivers
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\Downloads\\"
+				+ "chromedriver-win64-extract\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		//explicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//maximize window
+		driver.manage().window().maximize();
+		//opens amazon.in
+		driver.get("https://therapdevapp.promactinfo.xyz/therapist/signup");
+		//signup process
+    //driver.findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys("Rudra@1810120011");
+		By dropdownLocator = By.cssSelector("select[formcontrolname='nameTitle']");
+		WebElement dropdownElement = driver.findElement(dropdownLocator);
+		Select dropdown = new Select(dropdownElement);
+		dropdown.selectByValue("Mr");
+
+		
+
+	driver.findElement(By.xpath("//input[@formcontrolname='firstName']")).sendKeys("Rudra1810");
+    driver.findElement(By.xpath("//input[@formcontrolname='lastName']")).sendKeys("Bhatiya");
+    driver.findElement(By.xpath("//input[@formcontrolname='email']")).sendKeys("abc123@gmail.com");
+    
+    
+    driver.findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys("Rudra@1810120011");
+    driver.findElement(By.xpath("//input[@formcontrolname='rePassword']")).sendKeys("Rudra@1810120011");
+    
+ driver.findElement(By.xpath("//input[@formcontrolname='countryCode']")).sendKeys("1234");
+  
+driver.findElement(By.xpath("//input[@formcontrolname='phoneNumber']")).sendKeys("989865123456");
+//    
+   driver.findElement(By.xpath("//input[@formcontrolname='address']")).sendKeys("my street 1");
+//    
+ driver.findElement(By.xpath("//div[@class='ng-select-container']")).click();
+//    
+ driver.findElement(By.xpath("//div[@id='a1885d8d194c-3']")).click();
+ 
+ // Click on the dropdown
+ driver.findElement(By.xpath("//div[@class='ng-select-container']")).click();
+
+// // Wait for the element with the specified ID to become clickable
+// WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+// WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("abaf6fe01aa4-1")));
+//
+// // Click on the element
+// element.click();
+ 
+ // Click on the city dropdown
+ WebElement cityDropdown = driver.findElement(By.id("city"));
+
+ // Create a Select object for the dropdown
+ Select citySelect = new Select(cityDropdown);
+
+ // Locate and select the city "Akko" based on its text content
+ citySelect.selectByVisibleText("‘Akko");
+
+
+
+//		driver.quit();
+}
+}

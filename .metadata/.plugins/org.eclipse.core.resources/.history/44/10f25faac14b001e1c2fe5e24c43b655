@@ -1,0 +1,24 @@
+package Project;
+import java.time.Duration;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+public class Login {
+public static void main(String[] args) {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\Downloads\\"
+			+ "chromedriver-win64-extract\\chromedriver-win64\\chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.get("https://www.amazon.in/");
+	driver.findElement(By.linkText("Sign in")).click();
+	driver.findElement(By.id("ap_email")).sendKeys("rudrabhatiya967@gmail.com");
+	driver.findElement(By.id("continue")).click();
+	driver.findElement(By.id("ap_password")).sendKeys("Rudra@1810");
+	driver.findElement(By.id("signInSubmit")).click();
+}
+}

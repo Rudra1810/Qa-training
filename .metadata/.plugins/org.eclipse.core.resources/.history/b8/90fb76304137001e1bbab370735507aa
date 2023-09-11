@@ -1,0 +1,13 @@
+package Exercise;
+
+public class Hello {
+        static void show() {
+        	System.out.println("this is static method");
+        }
+	public static void main(String[] args) {
+		show();
+		System.out.println("hello");
+		
+	}
+
+}

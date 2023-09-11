@@ -1,0 +1,35 @@
+package Project;
+ import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Services1 {
+	public static void main(String[] args) throws InterruptedException {
+		// setup webdrivers
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\admin\\Downloads\\" + "chromedriver-win64-extract\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		// explicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		// maximize window
+		driver.manage().window().maximize();
+		// opens amazon.in
+		driver.get("https://therapdevapp.promactinfo.xyz/login");
+		// signin process
+	driver.findElement(By.xpath("//input[@formcontrolname='email']")).sendKeys("darshanrana.edu41@gmail.com");
+		//password
+	driver.findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys("Darshan@123");
+      //submit
+	driver.findElement(By.xpath("//button[@type='submit']")).click();
+	//dashboard
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("(//span[@type='button'])[1]")).click();
+
+//		driver.quit();
+	}
+}
+//span[@class="text-danger error-font ng-star-inserted"]

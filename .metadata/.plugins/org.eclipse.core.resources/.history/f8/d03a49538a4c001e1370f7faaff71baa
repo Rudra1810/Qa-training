@@ -1,0 +1,64 @@
+package Project;
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+public class Day3SignupLogin {
+public static void main(String[] args) throws InterruptedException {
+		//setup webdrivers
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\Downloads\\"
+				+ "chromedriver-win64-extract\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		//explicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//maximize window
+		driver.manage().window().maximize();
+		//opens amazon.in
+		driver.get("https://therapdevapp.promactinfo.xyz/therapist/signup");
+		//signup process
+		By dropdownLocator = By.cssSelector("select[formcontrolname='nameTitle']");
+		WebElement dropdownElement = driver.findElement(dropdownLocator);
+		Select dropdown = new Select(dropdownElement);
+		dropdown.selectByValue("Mr");
+	driver.findElement(By.xpath("//input[@formcontrolname='firstName']")).sendKeys("Rudra1810");
+    driver.findElement(By.xpath("//input[@formcontrolname='lastName']")).sendKeys("Bhatiya");
+    driver.findElement(By.xpath("//input[@formcontrolname='email']")).sendKeys("abc123@gmail.com");
+    driver.findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys("Rudra@1810120011");
+    driver.findElement(By.xpath("//input[@formcontrolname='rePassword']")).sendKeys("Rudra@1810120011");
+    driver.findElement(By.xpath("//input[@formcontrolname='countryCode']")).sendKeys("1234");
+    driver.findElement(By.xpath("//input[@formcontrolname='phoneNumber']")).sendKeys("989865123456");
+    driver.findElement(By.xpath("//input[@formcontrolname='address']")).sendKeys("my street 1");
+    driver.findElement(By.xpath("//div[@class='ng-select-container']")).click();
+    //Thread.sleep(5000);
+    driver.findElement(By.xpath("(//div[@class='ng-option'])[2]")).click();
+    
+    driver.findElement(By.xpath("//input[@formcontrolname='zipcode']")).sendKeys("1234");
+//    driver.findElement(By.xpath("//select[@formcontrolname='currency']")).click();
+//    Thread.sleep(5000);
+//    driver.findElement(By.xpath("//option[@value='ILS']")).click();
+    WebElement dropdownElement2 = driver.findElement(By.cssSelector("select[formcontrolname='currency']"));
+
+    // Create a Select object
+    Select dropdown1 = new Select(dropdownElement2);
+
+    // Select "US Dollar" by its value attribute
+    dropdown1.selectByValue("USD");
+   //Thread.sleep(5000);
+    // Initialize JavaScriptExecutor
+//    JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//    // Use JavaScript to scroll to the bottom of the page
+//    js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+    
+    driver.findElement(By.xpath("//select[@formcontrolname='language']")).click();
+  //div[@class="d-lg-inline-block col-lg-6"]
+	//Thread.sleep(5000);
+
+    driver.findElement(By.xpath("//option[@value='he']")).click();
+    //driver.findElement(By.xpath("//input[@type='submit']")).click();
+    //driver.quit();
+}
+}

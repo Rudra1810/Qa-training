@@ -1,0 +1,52 @@
+package Project;
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class Day3SignupLogin {
+	public static void main(String[] args) throws InterruptedException{
+		//setup webdrivers
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\admin\\Downloads\\"
+				+ "chromedriver-win64-extract\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		//explicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//maximize window
+		driver.manage().window().maximize();
+		//opens amazon.in
+		driver.get("https://therapdevapp.promactinfo.xyz/therapist/signup");
+		   try {
+	            // Pause the script for 5 seconds
+	            Thread.sleep(5000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+		//signin process
+//		driver.findElement(By.linkText("Sign in")).click();
+	//driver.findElement(By.id("ion-input-6")).sendKeys("Rudra1810");
+	driver.findElement(By.id("ion-input-2")).sendKeys("Bhatiya");
+	driver.findElement(By.id("ion-input-4")).sendKeys("");
+	driver.findElement(By.id("ion-input-7")).sendKeys("Rudra@1810120011");
+	driver.findElement(By.id("ion-input-8")).sendKeys("Rudra@1810120011");
+
+	driver.findElement(By.id("ion-input-5")).sendKeys("1234");
+//	driver.findElement(By.id("ion-input-8")).sendKeys("Rudra@1810120011");
+//	driver.findElement(By.id("ion-input-8")).sendKeys("Rudra@1810120011");
+//	driver.findElement(By.id("ion-input-8")).sendKeys("Rudra@1810120011");
+//	driver.findElement(By.id("ion-input-8")).sendKeys("Rudra@1810120011");
+	
+//		driver.findElement(By.id("continue")).click();
+//		driver.findElement(By.id("ap_password")).sendKeys("Rudra@1810");
+//		driver.findElement(By.id("signInSubmit")).click();
+//		//verification
+//		WebElement userNameElement = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
+//		if (userNameElement.isDisplayed()) {
+//			System.out.println("User logged in successfully.");
+//		} else {
+//			System.out.println("Login failed.");
+//		}
+//		 //stops driver
+//		driver.quit();
+}
+}
